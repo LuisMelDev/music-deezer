@@ -15,19 +15,20 @@ export const useGetArtistData = ({ id }) => {
           const tracklist = res.data.tracklist;
           const url = tracklist.slice(0, tracklist.length - 2);
           try {
-            const resp = await ax.get(`https://cors-anywhere.herokuapp.com/${url}10`)
-            const tracks = filterDataOfSongs(resp.data.data)
+            const resp = await ax.get(
+              `https://cors-anywhere.herokuapp.com/${url}10`
+            );
+            const tracks = filterDataOfSongs(resp.data.data);
             const dataArtist = {
-                id: res.data.id,
-                link: res.data.link,
-                name: res.data.name,
-                picture: res.data.picture_medium
-            }
-            setData({tracks, dataArtist})
+              id: res.data.id,
+              link: res.data.link,
+              name: res.data.name,
+              picture: res.data.picture_medium,
+            };
+            setData({ tracks, dataArtist });
           } catch (error) {
-            setError(error)
+            setError(error);
           }
-
         })
         .catch((err) => setError(err));
     };
