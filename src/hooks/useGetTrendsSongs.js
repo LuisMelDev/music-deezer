@@ -10,7 +10,7 @@ export const useGetTrendsSongs = ({ trends, setTrends }) => {
     const getData = () => {
       axios
         .get(
-          "https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks?limit=18"
+          "https://api.deezer.com/chart/0/tracks?limit=18"
         )
         .then((res) => {
           const songs = filterDataOfSongs(res.data.data);
